@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()) return false;
+        int[] alphabets = new int[256];
+        
+        for(int i=0; i<s.length();i++)
+        {
+            char ch = s.charAt(i);
+            alphabets[ch]++;
+        }
+
+        for(int i=0; i<t.length();i++)
+        {
+            char ch = t.charAt(i);
+            if(alphabets[ch]==0)
+            {
+                return false;
+            }
+            alphabets[ch]--;
+        }
+        return true;
+    }
+}
